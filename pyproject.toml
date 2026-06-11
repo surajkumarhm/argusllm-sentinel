@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "argusllm-sentinel"
+version = "1.0.1"
+description = "Lightweight LLM API security layer — deterministic, no AI, no DB."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["llm", "security", "prompt-injection", "jailbreak", "api"]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "pydantic>=2.0.0",
+    "regex>=2023.0.0",
+]
+
+[project.scripts]
+argusllm = "argusllm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["argusllm*"]
